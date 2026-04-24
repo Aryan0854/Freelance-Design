@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Redirecting...</title>
     <script>
-      // Convert direct routes to hash-based routes for SPA on GitHub Pages
-      var fullPath = window.location.pathname;
-      var basePath = '/Freelance-Design/';
-      var relativePath = fullPath.startsWith(basePath) ? fullPath.substring(basePath.length) : fullPath;
+      (function() {
+        var fullPath = window.location.pathname;
+        var basePath = '/Freelance-Design/';
+        var hash = window.location.hash;
 
-      // Remove trailing slash for consistency
-      if (relativePath.endsWith('/')) {
-        relativePath = relativePath.slice(0, -1);
-      }
+        // Get path relative to repo
+        var relativePath = fullPath;
+        if (fullPath.indexOf(basePath) === 0) {
+          relativePath = fullPath.substring(basePath.length);
+        }
 
-      if (relativePath && relativePath !== '') {
-        window.location.replace(basePath + 'index.html#/' + relativePath);
-      } else {
-        window.location.replace(basePath + 'index.html');
-      }
+        // Clean trailing slash
+        if (relativePath.length > 1 && relativePath.endsWith('/')) {
+          relativePath = relativePath.slice(0, -1);
+        }
+
+        // Build target URL with hash routing
+        var target = basePath + 'index.html';
+        if (relativePath && relativePath !== '/') {
+          target += '#/' + relativePath;
+        } else if (hash) {
+          target += hash;
+        }
+
+        window.location.replace(target);
+      })();
     </script>
   </head>
   <body></body>
