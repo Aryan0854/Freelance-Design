@@ -4,6 +4,11 @@ import { Calendar } from "./ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { format } from "date-fns";
 
+interface FilterSectionProps {
+  onFilterChange?: (filters: Record<string, string>) => void;
+  variant?: "pest-intelligence" | "survey-cadence";
+}
+
 export default function FilterSection({
   onFilterChange,
   variant = "pest-intelligence",
