@@ -7,7 +7,8 @@
     "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
-    "deploy": "vite build && git add dist -f && git commit -m 'Deploy to GitHub Pages' && git push origin main:gh-pages && git reset HEAD~1"
+    "deploy": "vite build && git add dist -f && git commit -m 'Deploy to GitHub Pages' && git push origin main:gh-pages && git reset HEAD~1",
+    "postinstall": "chmod +x node_modules/.bin/vite 2>/dev/null || true"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
