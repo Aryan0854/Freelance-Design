@@ -3,12 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pest Surveillance Dashboard</title>
+    <title>Redirecting...</title>
     <script>
-      // Redirect all routes to index.html for SPA routing
-      var path = location.pathname.replace(/^\/Freestyle-Design\//, '');
-      if (path && path !== '/') {
-        location.replace('/Freelance-Design/' + path);
+      // Convert direct routes to hash-based routes for SPA on GitHub Pages
+      var fullPath = window.location.pathname;
+      var basePath = '/Freelance-Design/';
+      var relativePath = fullPath.startsWith(basePath) ? fullPath.substring(basePath.length) : fullPath;
+
+      // Remove trailing slash for consistency
+      if (relativePath.endsWith('/')) {
+        relativePath = relativePath.slice(0, -1);
+      }
+
+      if (relativePath && relativePath !== '') {
+        window.location.replace(basePath + 'index.html#/' + relativePath);
+      } else {
+        window.location.replace(basePath + 'index.html');
       }
     </script>
   </head>
