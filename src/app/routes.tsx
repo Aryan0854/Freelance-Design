@@ -9,41 +9,44 @@ import ZeroReportingPage from "./pages/ZeroReportingPage";
 import FixedPlotReportsPage from "./pages/FixedPlotReportsPage";
 import RandomPlotReportsPage from "./pages/RandomPlotReportsPage";
 
+// Get base path from environment or default for GitHub Pages
+const basePath = import.meta.env.BASE_URL || '/';
+
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: basePath,
     Component: LoginPage,
   },
   {
-    path: "/dashboard",
+    path: `${basePath}dashboard`,
     Component: DashboardPage,
   },
   {
-    path: "/reports",
+    path: `${basePath}reports`,
     Component: ReportsPage,
   },
   {
-    path: "/reports/etl",
+    path: `${basePath}reports/etl`,
     Component: ETLReportsPage,
   },
   {
-    path: "/reports/near-etl",
+    path: `${basePath}reports/near-etl`,
     Component: NearETLReportsPage,
   },
   {
-    path: "/reports/zero",
+    path: `${basePath}reports/zero`,
     Component: ZeroReportingPage,
   },
   {
-    path: "/reports/fixed",
+    path: `${basePath}reports/fixed`,
     Component: FixedPlotReportsPage,
   },
   {
-    path: "/reports/random",
+    path: `${basePath}reports/random`,
     Component: RandomPlotReportsPage,
   },
   {
-    path: "/forgot-password",
+    path: `${basePath}forgot-password`,
     Component: ForgotPasswordPage,
   },
 ]);
