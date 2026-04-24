@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createHashRouter } from "react-router";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import ReportsPage from "./pages/ReportsPage";
@@ -9,44 +9,41 @@ import ZeroReportingPage from "./pages/ZeroReportingPage";
 import FixedPlotReportsPage from "./pages/FixedPlotReportsPage";
 import RandomPlotReportsPage from "./pages/RandomPlotReportsPage";
 
-// Get base path from environment or default for GitHub Pages
-const basePath = import.meta.env.BASE_URL || '/';
-
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
-    path: basePath,
+    path: "/",
     Component: LoginPage,
   },
   {
-    path: `${basePath}dashboard`,
+    path: "/dashboard",
     Component: DashboardPage,
   },
   {
-    path: `${basePath}reports`,
+    path: "/reports",
     Component: ReportsPage,
   },
   {
-    path: `${basePath}reports/etl`,
+    path: "/reports/etl",
     Component: ETLReportsPage,
   },
   {
-    path: `${basePath}reports/near-etl`,
+    path: "/reports/near-etl",
     Component: NearETLReportsPage,
   },
   {
-    path: `${basePath}reports/zero`,
+    path: "/reports/zero",
     Component: ZeroReportingPage,
   },
   {
-    path: `${basePath}reports/fixed`,
+    path: "/reports/fixed",
     Component: FixedPlotReportsPage,
   },
   {
-    path: `${basePath}reports/random`,
+    path: "/reports/random",
     Component: RandomPlotReportsPage,
   },
   {
-    path: `${basePath}forgot-password`,
+    path: "/forgot-password",
     Component: ForgotPasswordPage,
   },
 ]);
